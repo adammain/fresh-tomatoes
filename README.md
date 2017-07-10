@@ -1,44 +1,44 @@
 # Fresh Tomatoes Movies Documentation
-The Fresh Tomatoes Movies website displays all newly released movies that have a 
-current Rotten Tomatoes critic and audience score greater than 
-70% ("Certified Fresh").  Displays the movie titles, box art, critic scores, 
+The Fresh Tomatoes Movies website displays all newly released movies that have a
+current Rotten Tomatoes critic and audience score greater than
+70% ("Certified Fresh").  Displays the movie titles, box art, critic scores,
 audience scores, and trailers (when clicked).
 
-The program uses Python to scrape the Rotten Tomatoes website data and creates 
+The program uses Python to scrape the Rotten Tomatoes website data and creates
 an html page to display the data.
 
-## Install
-Download the directory titled "movie_trailer_website".
+## How to install on computer
+```
+# Clone this git repo:
+git clone git@github.com:amtruenorth/fresh-tomatoes.git
+
+cd fresh-tomatoes/
+```
+
 
 ## Requirements
 - Tested Python version: 2.7.13
-- BeautifulSoup4
 ```
 $ pip install beautifulsoup4
-```
-- Requests
-```
+
 $ pip install requests
 ```
-- webbrowser, os, re, unicodedata 
+- webbrowser, os, re, unicodedata
 
 ## Usage
 
-To start the program:
+1) Confirm requirements (above) are installed
+2) Navigate to project directory ```fresh-tomatoes/```
 
-1. Open a terminal window
-2. Ensure/download all program requirements (above)
-3. Navigate to "movie_trailer_website" directory
-4. Enter command in terminal:
+From project directory:
 ```
 python2.7 entertainment_center.py
 ```
 
 ### Expected Results
 
-Browser window should automatically open and display current "Certified Fresh" 
+Browser window should automatically open and display current "Certified Fresh"
 movie titles, art, critic and audience scores, and trailers (when clicked).
 
 ### License
 MIT © Adam Main
-
