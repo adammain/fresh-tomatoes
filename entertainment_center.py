@@ -6,7 +6,9 @@ import re
 import unicodedata
 
 # Rotten Tomatoes request url
-url = "https://www.rottentomatoes.com/browse/top-dvd-streaming?minTomato=70&maxTomato=100&minPopcorn=70&maxPopcorn=100&services=amazon;hbo_go;itunes;netflix_iw;vudu;amazon_prime;fandango_now&genres=1;2;4;5;6;8;9;10;11;13;18;14&sortBy=popularity" # NOQA
+url = "https://www.rottentomatoes.com/browse/top-dvd-streaming?minTomato=70" \
+      "&maxTomato=100&minPopcorn=70&maxPopcorn=100&services=amazon;hbo_go;itunes;netflix_iw;vudu;amazon_prime;fandango_now&genres=1;2;4;5;6;8;9;10;11;13;18;14&sortBy=popularity"  # NOQA
+
 
 def scrape_movie_data(url):
     # Go to Rotten Tomatoes page that displays movie scores > 70%
@@ -23,6 +25,7 @@ def scrape_movie_data(url):
     raw_data = re.findall(pattern, script.text)
     movie_data = raw_data[0]
     return movie_data
+
 
 def normalize_data(raw_data):
     # Normalize scraped data
@@ -43,7 +46,8 @@ def normalize_data(raw_data):
 
     # movie_storylines list
     pattern = re.compile(
-        r"\"synopsis\":\"([<em>^A-Z0-9a-z\s/,'.()-;\\\"]*)(?=\"\,\"synopsisType)")
+        r"\"synopsis\":\"([<em>^A-Z0-9a-z\s/,'.()-;\\\"]*)(?=\"\,"
+        r"\"synopsisType)")
     movie_storylines = re.findall(pattern, movie_data_str)
 
     # poster_images list
@@ -51,7 +55,8 @@ def normalize_data(raw_data):
     poster_images = re.findall(pattern, movie_data_str)
 
     # movie_trailers list
-    pattern = re.compile(r"\"mainTrailer\":{\"sourceId\":\"([a-zA-Z0-9:\/._=-]*)")
+    pattern = re.compile(r"\"mainTrailer\":{\"sourceId\":\"(["
+                         r"a-zA-Z0-9:\/._=-]*)")
     movie_trailers = re.findall(pattern, movie_data_str)
 
     # Create movie instances and assemble movies list
@@ -68,6 +73,7 @@ def normalize_data(raw_data):
                                   movie_trailers[index]))
         index += 1
     return movies
+
 
 def get_rt_movies(url):
     # Get movie data of all new release DVD movies with RT score > 70%/70%

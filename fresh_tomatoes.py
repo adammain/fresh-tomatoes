@@ -178,7 +178,8 @@ def open_movies_page(movies):
   output_file = open('fresh_tomatoes.html', 'w')
 
   # Replace the placeholder for the movie tiles with the actual dynamically generated content
-  rendered_content = main_page_content.format(movie_tiles=create_movie_tiles_content(movies))
+  rendered_content = main_page_content.format(
+      movie_tiles=create_movie_tiles_content(movies))
 
   # Output the file
   output_file.write(main_page_head + rendered_content)
