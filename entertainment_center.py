@@ -6,8 +6,7 @@ import re
 import unicodedata
 
 # Rotten Tomatoes request url
-url = "https://www.rottentomatoes.com/browse/top-dvd-streaming?minTomato=70" \
-      "&maxTomato=100&minPopcorn=70&maxPopcorn=100&services=amazon;hbo_go;itunes;netflix_iw;vudu;amazon_prime;fandango_now&genres=1;2;4;5;6;8;9;10;11;13;18;14&sortBy=popularity"  # NOQA
+url = "https://www.rottentomatoes.com/browse/top-dvd-streaming?minTomato=70&maxTomato=100&minPopcorn=70&maxPopcorn=100&services=amazon;hbo_go;itunes;netflix_iw;vudu;amazon_prime;fandango_now&genres=1;2;4;5;6;8;9;10;11;13;18;14&sortBy=popularity"  # NOQA
 
 
 def scrape_movie_data(url):
